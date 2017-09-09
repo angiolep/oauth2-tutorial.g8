@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>OAuth 2.0 Tutorial - Authorization Server</title>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>OAuth 2.0 - Authorization Server</h1>
+    </div>
+    <div>
+        <p>The authorization server acts as an intermediary between the client application and the resource owner. It provides the following endpoints:</p>
+        <ul>
+            <li><code>/authorize</code><p>This is where the client application redirects the resources owner to. This endpoint expects the following parameters:
+                <ul>
+                    <li><code>response_type</code>
+                        <p>Its (mandatory) value is <code>code</code> when the client hopes for the authorization code grant.</p>
+                    </li>
+                    <li><code>client_id</code>
+                        <p>Its (mandatory) value is the unique client identifier provided by the authorization server at registration,</p>
+                    </li>
+                    <li><code>redirect_uri</code>
+                        <p>It is the (optional) URI the client wants to be redirected to in case the resource owner approves.</p>
+                    </li>
+                </ul>
+                <p>Requests to this endpoint are called <i>authorization requests</i> and they look like as follows</p>
+                <pre>GET /authorize?response_type=code&client_id=my-awsome-client&redirect_uri=https%3A%2F%2Fclient%2Enet%2Fcallback HTTP/1.1
+Host: oauth2.server.net
+                </pre>
+            </li>
+            <li><code>/approve</code></li>
+            <li><code>/deny</code></li>
+        </ul>
+    </div>
+</div><!-- /.container -->
+</body>
+</html>
